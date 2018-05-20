@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 # @Author: cy101
 # @Date:   2018-05-18 18:59:51
-# @Last Modified by:   cy101
-# @Last Modified time: 2018-05-18 21:20:07
+# @Last Modified by:   cyang812
+# @Last Modified time: 2018-05-20 21:54:10
 
 import serial
 import serial.tools.list_ports
 import threading
 import time
 
-COM_PORT = 'COM7'
-BAUDRATE = 115200
+COM_PORT = 'COM1'
+BAUDRATE = 9600
 
 def find_serial():
 	plist = list(serial.tools.list_ports.comports())
@@ -86,10 +86,12 @@ if __name__ == '__main__':
 	# find_serial()
 	serial_1 = open_serial(COM_PORT, BAUDRATE)
 	# send_serial(serial_1 ,'test')
-	content = list()
+	# content = list()
+	content = b''
 	time1 = int(time.time())
 	while True:
-		content.append(receive_serial(serial_1, 1))
+		# content.append(receive_serial(serial_1, 1))
+		content += receive_serial(serial_1, 1)
 		time2 = int(time.time())
 		if time2 - time1 > 100:
 			break
@@ -98,5 +100,4 @@ if __name__ == '__main__':
 	close_serial(serial_1)
 
 	with open('uart.txt', 'wb') as f:
-		for x in content:
-			f.write(x)
+		f.write(content)
