@@ -2,13 +2,13 @@
 # @Author: cyang
 # @Date:   2020-09-13 10:44:28
 # @Last Modified by:   cyang
-# @Last Modified time: 2020-09-13 18:57:29
+# @Last Modified time: 2020-09-19 09:35:13
 
 import os
 import send2trash
 
 SUFFIX = ('.torrent', '.txt', '.url', 'rar', '.jpg', '.mht', '.gif', '.png', '.mhtml', '.xltd')
-PATH = 'F:\\download'
+PATH = 'x:\\download'
 
 def deleteFile(path):
 	for folderName, subFolders, fileNames in os.walk(path):
@@ -31,6 +31,14 @@ def deleteFile(path):
 				filePath = os.path.join(folderName, fileName)
 				print('#send2trash#: ' + filePath)
 				# send2trash.send2trash(filePath)
+			elif fileName.endswith('.mp4'):
+				filePath = os.path.join(folderName, fileName)
+				fileSize = os.path.getsize(filePath)
+				fileSize = round(fileSize/float(1024*1024), 2)
+				print('%s, %d MB' % (filePath, fileSize))
+
+				# if fileSize < 100:
+					# send2trash.send2trash(filePath)
 
 
 if __name__ == '__main__':
