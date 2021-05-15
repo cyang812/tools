@@ -1,2 +1,2 @@
 git log --pretty=format:'%<(15)%cn %<(40)%ad %s' -10
-git config --global alias.lg 'log --pretty=format:'%<(15)%cn %<(40)%ad %s' -10'
+git config --global alias.lg "'log --pretty=format:'%<(15)%cn %<(40)%ad %s' -10"
