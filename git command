@@ -1,0 +1,7 @@
+#git log --pretty=format:'%<(15)%cn %<(40)%ad %s' -10
+git config --global alias.lg "log --pretty=format:'%<(15)%cn %<(40)%ad %s' -10"
+
+git config --global alias.st status
+git config --global alias.br branch
+git config --global alias.ck checkout
+
