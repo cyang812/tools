@@ -7,9 +7,9 @@
 import os
 import send2trash
 
-# SUFFIX = ('.torrent', '.txt', '.url', 'rar', '.jpg', '.mht', '.gif', '.png', '.mhtml', '.xltd', '.chm')
-SUFFIX = ('.torrent', '.txt', '.url', 'rar', '.mht','.mhtml', '.xltd', '.chm', '.ass')
-PATH = 'M:\\1901401'
+SUFFIX = ('.torrent', '.txt', '.url', 'rar', '.jpg', '.mht', '.gif', '.png', '.mhtml', '.xltd', '.chm', '.bpm', '.apk', 'pdf')
+# SUFFIX = ('.torrent', '.txt', '.url', 'rar', '.mht','.mhtml', '.xltd', '.chm', '.ass')
+PATH = 'D:\迅雷下载'
 
 def deleteFile(path):
 	for folderName, subFolders, fileNames in os.walk(path):
@@ -17,7 +17,7 @@ def deleteFile(path):
 		print('The current folder is ' + folderName)
 		# print(subFolders, fileNames)
 		if not os.listdir(folderName):
-			print(folderName + ' is an empty folder, remove it')	
+			print(folderName + ' is an empty folder, remove it')
 			filePath = os.path.join(folderName)
 			print('#send2trash#: ' + filePath)
 			send2trash.send2trash(filePath)
@@ -27,7 +27,7 @@ def deleteFile(path):
 		for fileName in fileNames:
 			print('FILE INSIDE ' + folderName + ': ' + fileName)
 
-			#remove file to trash if its suffix is one of SUFFIX 	
+			#remove file to trash if its suffix is one of SUFFIX
 			if fileName.endswith(SUFFIX):
 				filePath = os.path.join(folderName, fileName)
 				print('#send2trash#: ' + filePath)
@@ -38,9 +38,9 @@ def deleteFile(path):
 				fileSize = round(fileSize/float(1024*1024), 2)
 				print('%s, %d MB' % (filePath, fileSize))
 
-				# if fileSize < 100:
-					# print('#send2trash#: ' + filePath)
-					# send2trash.send2trash(filePath)
+				if fileSize < 100:
+					print('#send2trash#: ' + filePath)
+					send2trash.send2trash(filePath)
 
 
 if __name__ == '__main__':
