@@ -1,0 +1,12 @@
+<all>
+    <Server>
+        <TesterName>395286</TesterName>
+        <LogCount>2</LogCount>
+        <DestinationPath>c:\temp\yg</DestinationPath>
+    </Server>
+<Server>
+        <TesterName>e179p</TesterName>
+        <LogCount>2</LogCount>
+        <DestinationPath>c:\temp\yg</DestinationPath>
+    </Server>
+</all>
