@@ -9,7 +9,7 @@ import os, sys
 import re
 
 ec_flag="<ErrorCode>"
-fc_flag="<Value>"
+fc_flag="<Facility>"
 
 def args_parse():
     # construct the argument parse and parse the arguments
